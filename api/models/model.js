@@ -3,14 +3,22 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 
-var TaskSchema = new Schema({
+var ListSchema = new Schema({
   name: {
     type: String,
-    required: 'Kindly enter the name of the task'
+    required: true
   },
-  Created_date: {
+  address: {
+    type: String,
+    required: true
+  },
+  created_date: {
     type: Date,
     default: Date.now
+  },
+  end_date:{
+    type: Date,
+    default: 0
   },
   status: {
     type: [{
@@ -21,4 +29,4 @@ var TaskSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('Tasks', TaskSchema);
+module.exports = mongoose.model('Places', ListSchema);
